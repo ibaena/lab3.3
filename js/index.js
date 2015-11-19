@@ -11,10 +11,6 @@ function getOut() {
   this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
 };
 
-for (var i = 0; i < formInput.length; i++) {
-  formInput[i]
-};
-
 //Make delete buttons array
 for (var i = 0; i < removeRow.length; i++) {
   removeRow[i].addEventListener('click', getOut);
@@ -24,8 +20,24 @@ for (var i = 0; i < removeRow.length; i++) {
 //This will allow the addition of rows to the table the new row will be added before the last row in the table
 
 function addRow() {
+    var row = myTable.insertRow(myTable.rows.length - 1);
+    var x = formInput.firstName.value;
+    var y = formInput.lastName.value;
+    var z = formInput.eMail.value;
 
-  var row = myTable.insertRow(myTable.rows.length - 1);
+    if (x == null || x == "") {
+        alert("First name must be filled out");
+        return false;
+    }
+    else if (y == null || y =="") {
+      alert("Last name must be filled out");
+        return false;
+    }
+    else if (z == null || z=="") {
+        alert("Email must be filled out");
+        return false;
+    }
+    else{
 
   var cell1 = row.insertCell(0);
   var element1 = document.createElement("input");
@@ -52,7 +64,8 @@ function addRow() {
   element4.addEventListener('click', getOut);
   element4.style.fontWeight = 'bold';
   cell4.appendChild(element4);
-}
+};
+} 
 rowAdd.addEventListener('click', addRow);
 
 
@@ -70,13 +83,4 @@ function randomDelete() {
 };*/
 
 //test for emepty
-
-function IsEmpty(){
-  if(forInput.value == "")
-  {
-    alert("empty");
-    return false;
-  }
-    return true;
-}
 
